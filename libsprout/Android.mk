@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2017 LineageOS Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,9 +15,8 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := libshim_ril.cpp libshim_wpa_supplicant.cpp libshim_gui.cpp libshim_wvm.cpp libshim_wvm2.cpp libshim_gps.cpp libshim_ui.cpp libshim_audio.cpp libshim_bionic.cpp xlog.c
-LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/ frameworks/av/
-LOCAL_SHARED_LIBRARIES := libbinder libgui libutils liblog libandroid libui libstagefright_foundation libicuuc libmedia libcutils libc
-LOCAL_MODULE := libshims
+LOCAL_SRC_FILES := ril.cpp ui.cpp gui.cpp
+LOCAL_SHARED_LIBRARIES := libbinder libui libgui
+LOCAL_MODULE := libsprout
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
