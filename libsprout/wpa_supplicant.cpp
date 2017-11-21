@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-extern "C" void RIL_register_socket() {}
+#include <pthread.h>
 
 /* status_t Parcel::writeString16 */
-extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
-extern "C" int _ZN7android6Parcel13writeString16EPKtj() {
-    return _ZN7android6Parcel13writeString16EPKDsj();
+//extern "C" bool _ZNK7android12IMediaSource11ReadOptions9getSeekToEPxPNS1_8SeekModeE();
+extern "C" long SSL_CTX_ctrl() {
+  return 1;
 }
-
-

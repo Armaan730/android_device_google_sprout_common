@@ -15,8 +15,8 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := ril.cpp ui.cpp gui.cpp
-LOCAL_SHARED_LIBRARIES := libbinder libui libgui
+LOCAL_SRC_FILES := ril.cpp ui.cpp gui.cpp icu55.c wvm.cpp wpa_supplicant.cpp
+LOCAL_SHARED_LIBRARIES := libbinder libui libgui libicuuc libmedia libstagefright_foundation
 LOCAL_MODULE := libsprout
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
