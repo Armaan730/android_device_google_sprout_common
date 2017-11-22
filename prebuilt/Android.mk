@@ -1,0 +1,10 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := Chromium
+LOCAL_MODULE_CLASS := APPS
+LOCAL_OVERRIDES_PACKAGES := Browser
+LOCAL_DEX_PREOPT := false
+LOCAL_CERTIFICATE := testkey
+LOCAL_SRC_FILES := Chromium.apk
+include $(BUILD_PREBUILT)
