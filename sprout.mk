@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/magisk.zip:system/addon.d/magisk.zip
 
+# Chromium
+PRODUCT_PACKAGES += \
+    Chromium
+
 # Correct bootanimation size for the screen
 TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
