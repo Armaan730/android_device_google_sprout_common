@@ -83,6 +83,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Doze
 
+# Magisk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/magisk.zip:system/addon.d/magisk.zip
+
 # Correct bootanimation size for the screen
 TARGET_SCREEN_HEIGHT := 854
 TARGET_SCREEN_WIDTH := 480
