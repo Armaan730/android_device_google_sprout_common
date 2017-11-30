@@ -106,7 +106,8 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 USE_CAMERA_STUB := true
 
 # SELinux Policy
-BOARD_SEPOLICY_DIRS += device/google/sprout-common/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    device/google/sprout-common/sepolicy
 
 # Seccomp Policy
 BOARD_SECCOMP_POLICY += device/google/sprout-common/seccomp
