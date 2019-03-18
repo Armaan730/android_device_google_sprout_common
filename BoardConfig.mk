@@ -1,4 +1,4 @@
-LOCAL_PATH := device/google/sprout-common
+LOCAL_PATH := device/google/sprout
 
 TARGET_BOARD_PLATFORM := mt6582
 TARGET_CPU_ABI := armeabi-v7a
@@ -90,4 +90,4 @@ USE_CAMERA_STUB := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/google/sprout-common/sepolicy
+    device/google/sprout/sepolicy
