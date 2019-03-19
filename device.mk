@@ -126,10 +126,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wificond
 
 PRODUCT_PACKAGES += \
-    libsprout_ril_shim \
-    libsprout_omx_shim \
-    libsprout_camera \
-    libsprout_log_shim
+    libsprout
 
 PRODUCT_PACKAGES += \
     libion \

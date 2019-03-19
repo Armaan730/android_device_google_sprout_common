@@ -88,6 +88,9 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
+# Symbols for Sprout
+TARGET_LDPRELOAD += libsprout.so
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/google/sprout/sepolicy
