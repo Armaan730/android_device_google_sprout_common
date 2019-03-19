@@ -6,10 +6,6 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES += ril.cpp
 LOCAL_SHARED_LIBRARIES += libbinder
 
-# /system/bin/wpa_supplicant ( SSL_CTX_ctrl )
-LOCAL_SRC_FILES += wpa_supplicant.cpp
-LOCAL_SHARED_LIBRARIES += libbinder
-
 # /system/lib/libcam.utils.so ( _ZN7android13GraphicBufferC1Ejjij )
 LOCAL_SRC_FILES += GraphicBuffer.cpp
 LOCAL_SHARED_LIBRARIES += libui
