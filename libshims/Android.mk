@@ -8,7 +8,7 @@ LOCAL_SHARED_LIBRARIES += libbinder
 
 # /system/lib/libcam.utils.so ( _ZN7android13GraphicBufferC1Ejjij )
 LOCAL_SRC_FILES += GraphicBuffer.cpp
-LOCAL_SHARED_LIBRARIES += libui
+LOCAL_SHARED_LIBRARIES := libui
 
 # /system/bin/mtk_agpsd ( UCNV_FROM_U_CALLBACK_STOP_55 )
 LOCAL_SRC_FILES += icu55.c
