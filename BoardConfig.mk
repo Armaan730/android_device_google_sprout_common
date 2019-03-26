@@ -1,5 +1,8 @@
 LOCAL_PATH := device/google/sprout
 
+# Assert 
+TARGET_OTA_ASSERT_DEVICE := sprout,sprout4,sprout8
+
 TARGET_BOARD_PLATFORM := mt6582
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
