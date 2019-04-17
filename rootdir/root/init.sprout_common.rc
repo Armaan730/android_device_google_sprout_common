@@ -202,11 +202,13 @@ on post-fs-data
     chmod 0660 /sys/class/misc/m_acc_misc/accbatch
     chmod 0660 /sys/class/misc/m_acc_misc/accflush
     chmod 0660 /sys/class/misc/m_acc_misc/smactive
+    chmod 0660 /sys/class/misc/m_acc_misc/accdevnum
     chown system system /sys/class/misc/m_acc_misc/accenablenodata
     chown system system /sys/class/misc/m_acc_misc/accactive
     chown system system /sys/class/misc/m_acc_misc/accdelay
     chown system system /sys/class/misc/m_acc_misc/accbatch
     chown system system /sys/class/misc/m_acc_misc/accflush
+    chown system system /sys/class/misc/m_acc_misc/accdevnum
     chown system system /sys/class/misc/m_acc_misc/smactive
     chmod 0660 /sys/class/misc/m_mag_misc/magactive
     chmod 0660 /sys/class/misc/m_mag_misc/magdelay
@@ -334,7 +336,7 @@ on post-fs-data
     chown root diag /sys/bus/platform/drivers/eint/current_eint
 
     # for ppp options file
-    mkdir /data/misc/ppp 0770 bluetooth net_bt
+    mkdir /data/misc/ppp 0770 bluetooth bluetooth
 
     # Android SEC related device nodes
     chmod 0660 /dev/sec
@@ -351,7 +353,7 @@ on post-fs-data
     chmod 0660 /dev/ttyGS2
 
     #Use uinput's default permission
-    chown system net_bt_admin /dev/uinput
+    chown system bluetooth /dev/uinput
 
     #TV-out
     chmod 0664 /dev/TV-out
@@ -438,6 +440,8 @@ on post-fs-data
 #/dev/ttyMT2 for Connectivity BT/FM/GPS usage
     chmod 0660 /dev/ttyMT2
     chown system system /dev/ttyMT2
+    chown bluetooth bluetooth /dev/stpbt
+	chown system system /dev/block/mmcblk0p2
 
 # GPS
     chown gps gps /sys/devices/virtual/gpsdrv/gps/pwrctl
@@ -451,6 +455,7 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wpa_supplicant 0770 wifi wifi
     chown wifi wifi /data/misc/wifi
+    chown wifi wifi /dev/wmtWifi
 #
 # Connectivity related device nodes & configuration (end)
 #
@@ -626,7 +631,7 @@ service netdiag /system/bin/netdiag
 service nvram_daemon /vendor/bin/nvram_daemon
     class main
     user root
-    group system bluetooth
+    group root system
     oneshot
 
 service atci_service /system/bin/atci_service
@@ -667,7 +672,11 @@ service rmmod rmmod
 
 #remove -puse_p2p_group_interface=1, our driver doesnot support this feature
 #
+<<<<<<< HEAD
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
+=======
+service p2p_supplicant /system/vendor/bin/hw/wpa_supplicant \
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
 	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
 	-I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
 	-ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -e/data/misc/wifi/entropy.bin \
@@ -682,6 +691,22 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
+<<<<<<< HEAD
+=======
+service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+	-iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -e/data/misc/wifi/entropy.bin \
+	-I/system/etc/wifi/wpa_supplicant_overlay.conf \
+	-O/data/misc/wifi/sockets -g@android:wpa_wlan0
+    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   after setting up the capabilities required for WEXT
+    #   user wifi
+    #   group wifi inet keystore
+    class main
+    socket wpa_wlan0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
 service dhcpcd_bt-pan /system/bin/dhcpcd -A -BK -dd
     class main
     user dhcp
@@ -737,13 +762,14 @@ service bluetoothd /system/bin/bluetoothd -n
     socket dbus_bluetooth stream 660 bluetooth bluetooth
     # init.rc does not yet support applying capabilities, so run as root and
     # let bluetoothd drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
+    group bluetooth misc
     disabled
 
 #
 #  External Modme control related services
 #
 
+<<<<<<< HEAD
 service agpsd /vendor/bin/mtk_agpsd
     class main
     socket agpsd stream 660 gps system
@@ -751,6 +777,15 @@ service agpsd /vendor/bin/mtk_agpsd
     socket agpsd3 stream 660 gps inet
     user gps
     group gps inet sdcard_r sdcard_rw misc radio
+=======
+# service agpsd /system/bin/mtk_agpsd
+#    class main
+#    socket agpsd stream 660 gps system
+#    socket agpsd2 stream 660 gps inet
+#    socket agpsd3 stream 660 gps inet
+#    user gps
+#    group gps inet sdcard_r sdcard_rw misc radio
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
 
 service mnld /system/xbin/mnld
     class main

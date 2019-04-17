@@ -1,6 +1,6 @@
 #change partition permission
 /dev/block/mmcblk0p1      0640	 root	    system
-/dev/block/mmcblk0p2      0640	 root	    system
+/dev/block/mmcblk0p2      0660	 root	    system
 /dev/block/mmcblk0p18     0660	 system	    system
 /dev/misc-sd              0660   root       system
 
@@ -18,7 +18,11 @@
 /dev/gps                 0660  gps         system
 
 # WIFI
+<<<<<<< HEAD
 /dev/wmtWifi             0660  wifi        wifi
+=======
+/dev/wmtWifi             0660  wifi      wifi
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
 
 #FMRadio
 /dev/fm                  0660  media       media

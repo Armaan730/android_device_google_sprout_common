@@ -20,6 +20,7 @@ service gsm0710muxd /vendor/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
     user root
     group radio cache inet misc
     disabled
+    oneshot
 
 service muxreport-daemon /vendor/bin/muxreport
     class core
@@ -32,6 +33,14 @@ service ril-daemon-mtk /vendor/bin/hw/rild
     class core
     user root
     group radio cache inet misc audio log readproc wakelock system
+<<<<<<< HEAD
+=======
+    disabled
+    oneshot
+
+service md_minilog_util /system/bin/md_minilog_util
+    user radio
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
     disabled
     oneshot
 
@@ -39,16 +48,25 @@ service ril-daemon-mtk /vendor/bin/hw/rild
 #  Modem related services (Begin)
 #
 
+<<<<<<< HEAD
 service ccci_fsd /vendor/bin/ccci_fsd 0
+=======
+service ccci_fsd /system/bin/ccci_fsd 0
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
     user root
     group radio system
     class core
     oneshot
 
+<<<<<<< HEAD
 service ccci_mdinit /vendor/bin/ccci_mdinit 0
+=======
+service ccci_mdinit /system/bin/ccci_mdinit 0
+>>>>>>> beb8720be9b3d239c51f5edc9d8c3c91afee71a1
     user root
     group radio system
     class core
+    oneshot
 
 service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
     user root

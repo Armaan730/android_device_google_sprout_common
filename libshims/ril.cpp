@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright (C) 2015 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef _BDROID_BUILDCFG_H
-#define _BDROID_BUILDCFG_H
+extern "C" void RIL_register_socket() {}
 
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
-#define BTM_DEF_LOCAL_NAME        "Android One 1st Gen"
+/* status_t Parcel::writeString16 */
+extern "C" int _ZN7android6Parcel13writeString16EPKDsj();
+extern "C" int _ZN7android6Parcel13writeString16EPKtj() {
+    return _ZN7android6Parcel13writeString16EPKDsj();
+}
 
-#endif
