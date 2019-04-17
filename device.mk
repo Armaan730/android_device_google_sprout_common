@@ -123,7 +123,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf \
-    wificond
+    wificond \
+    libwifi-hal-mt66xx \
+    lib_driver_cmd_mt66xx
 
 PRODUCT_PACKAGES += \
     libsprout
