@@ -8,20 +8,14 @@ LOCAL_SHARED_LIBRARIES += libbinder
 
 # /system/lib/libcam.utils.so ( _ZN7android13GraphicBufferC1Ejjij )
 LOCAL_SRC_FILES := GraphicBuffer.cpp
-LOCAL_SHARED_LIBRARIES := libui
-
-# /system/bin/mtk_agpsd ( UCNV_FROM_U_CALLBACK_STOP_55 )
-LOCAL_SRC_FILES += icu55.c
-LOCAL_SHARED_LIBRARIES += libicuuc
+LOCAL_SHARED_LIBRARIES := libui libbinder libgui
+LOCAL_C_INCLUDES := frameworks/native/include
 
 # /system/lib/libmtkjpeg.so ( __pthread_gettid )
 LOCAL_SRC_FILES += bionic.cpp
 LOCAL_SHARED_LIBRARIES += libc
 
-# /system/vendor/lib/libwvm.so ( _ZN7android16MediaBufferGroupC1Ev , _ZNK7android11MediaSource11ReadOptions9getSeekToEPxPNS1_8SeekModeE , _ZNK7android11MediaSource11ReadOptions14getNonBlockingEv , _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb
-# LOCAL_SRC_FILES += wvm.cpp
-# LOCAL_SHARED_LIBRARIES += libmedia libstagefright_foundation
-
 LOCAL_MODULE := libsprout
 LOCAL_MODULE_TAGS := optional
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
